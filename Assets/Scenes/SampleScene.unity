@@ -6589,7 +6589,7 @@ MonoBehaviour:
   Damage: 20
   AttackRadius: 0.8
   AttackCooldown: 1
-  isAlive: 0
+  isAlive: 1
 --- !u!70 &2059871445
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

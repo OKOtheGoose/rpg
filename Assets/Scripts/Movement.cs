@@ -27,8 +27,12 @@ public class Movement : MonoBehaviour
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
 
-        var newposition = new Vector3(horizontal * speed, vertical * speed, 0f);
-        gameObject.GetComponent<Rigidbody2D>().velocity = newposition;
+        var newposition = new Vector3(horizontal, vertical, 0f);
+        if (newposition.magnitude > 1f)
+        {
+            newposition = newposition.normalized;
+        }
+        gameObject.GetComponent<Rigidbody2D>().velocity = newposition * speed;
         if (horizontal > 0)
         {
             animator.SetFloat("Right", horizontal);

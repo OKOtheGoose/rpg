@@ -15,13 +15,14 @@ public class EnemyHealth : MonoBehaviour
             health -= damage;
             if(damage >= 5%health) 
             {
+
                 gameObject.GetComponent<Enemy>().AnimatorObject.GetComponent<Animator>().SetTrigger("Damage"); 
             }
             if (health <= 0f)
             {
-                Debug.Log("adsds");
+                gameObject.GetComponent<Enemy>().isAlive = false;
                 gameObject.GetComponent<Enemy>().AnimatorObject.GetComponent<Animator>().SetTrigger("Death");
-                Destroy(gameObject, 4);
+                Destroy(gameObject, 3);
             }
         }
     }
