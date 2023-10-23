@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
     public float Speed;
     public float Radius;
     public GameObject animatorobject;
-    public LayerMask Enemy;
+    public LayerMask AttackMask;
     private float Cooldown;
     public float MaxCooldown;
     void Start()
@@ -36,10 +36,12 @@ public class Attack : MonoBehaviour
     }
     void DoDamage()
     {
-        var enemies = Physics2D.OverlapCircleAll(transform.position - new Vector3(animatorobject.GetComponent<SpriteRenderer>().flipX ? Radius / 2 : -Radius / 2, 0, 0), Radius, Enemy);
+        var enemies = Physics2D.OverlapCircleAll(transform.position - new Vector3(animatorobject.GetComponent<SpriteRenderer>().flipX ? Radius / 2 : -Radius / 2, 0, 0), Radius, AttackMask);
         foreach (var enemy in enemies)
         {
-            enemy.GetComponent<EnemyHealth>().GetDamage(Damage);
+
+            enemy.GetComponent<EnemyHealth>()?.GetDamage(Damage);
+
         }
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public static Inventory inventory = Inventory.Instance;
+    public Inventory inventory;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         ActionTrigger();
         Destroy(gameObject);

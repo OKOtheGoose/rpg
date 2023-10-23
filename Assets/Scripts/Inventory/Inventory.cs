@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
-    public static Inventory Instance;
-
-    public void AddMoney()
+    public int Money;
+    public int HealthBottle;
+    public void AddMoney(int amount = 1)
     {
-        Debug.Log("addMoney");
+        Money += amount;
     }
 
     public void AddHelathBottle()
     {
-        Debug.Log("addHealth");
+        HealthBottle += 1;
     }
 }

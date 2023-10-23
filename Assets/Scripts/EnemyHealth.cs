@@ -4,6 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float MaxHealth;
     public float health;
+    public Animator animator;
     void Start()
     {
         health = MaxHealth;
@@ -16,12 +17,13 @@ public class EnemyHealth : MonoBehaviour
             if(damage >= 5%health) 
             {
 
-                gameObject.GetComponent<Enemy>().AnimatorObject.GetComponent<Animator>().SetTrigger("Damage"); 
+                animator?.SetTrigger("Damage"); 
             }
             if (health <= 0f)
             {
-                gameObject.GetComponent<Enemy>().isAlive = false;
-                gameObject.GetComponent<Enemy>().AnimatorObject.GetComponent<Animator>().SetTrigger("Death");
+                if(gameObject.GetComponent<Enemy>() != null)
+                    gameObject.GetComponent<Enemy>().isAlive = false;
+                animator?.SetTrigger("Death");
                 Destroy(gameObject, 3);
             }
         }
