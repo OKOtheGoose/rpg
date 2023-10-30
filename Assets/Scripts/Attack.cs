@@ -40,7 +40,7 @@ public class Attack : MonoBehaviour
         foreach (var enemy in enemies)
         {
 
-            enemy.GetComponent<EnemyHealth>()?.GetDamage(Damage);
+            enemy.GetComponent<UnitDefense>()?.GetDamage(Damage);
 
         }
     }
