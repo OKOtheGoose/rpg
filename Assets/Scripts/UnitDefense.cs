@@ -28,7 +28,7 @@ public class UnitDefense : MonoBehaviour
                     gameObject.GetComponent<Enemy>().isAlive = false;
                 animator?.SetTrigger("Death");
                 Destroy(gameObject, 3);
-                Instantiate(item, transform.position + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), 0), Quaternion.identity);
+                GetComponent<Spawn>().SpawnProbs();
             }
         }
     }
