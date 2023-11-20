@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public Health health;
     static public Movement Instance;
     private bool isAbleToMove = true;
+    public float MaxSpeed = 10f;
 
     private void Start()
     {
@@ -51,7 +52,6 @@ public class Movement : MonoBehaviour
                 animator.SetFloat("Forward", -vertical);
             }
         }
-       
     }
     public void StatusUpdate(Health.PlayerState status)
     {

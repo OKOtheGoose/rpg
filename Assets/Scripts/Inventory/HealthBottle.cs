@@ -6,6 +6,6 @@ public class HealthBottle : Item
 {
     public override void ActionTrigger()
     {
-        inventory.AddHelathBottle();
+        inventory.AddHealthBottle();
     }
 }

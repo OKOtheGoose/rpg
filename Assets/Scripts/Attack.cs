@@ -39,7 +39,7 @@ public class Attack : MonoBehaviour
         var enemies = Physics2D.OverlapCircleAll(transform.position - new Vector3(animatorobject.GetComponent<SpriteRenderer>().flipX ? Radius / 2 : -Radius / 2, 0, 0), Radius, AttackMask);
         foreach (var enemy in enemies)
         {
-
+            Perks.instance.giveLeachEffect(Damage);
             enemy.GetComponent<UnitDefense>()?.GetDamage(Damage);
 
         }
