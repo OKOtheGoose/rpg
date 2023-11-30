@@ -16,9 +16,10 @@ public class UnitDefense : MonoBehaviour
         if (health > 0f)
         {
             health -= damage;
-            if(damage >= 5%health) 
+            if(damage >= health * 0.05) 
             {
-                animator?.SetTrigger("Damage"); 
+                if(animator != null)
+                animator.SetTrigger("Damage"); 
             }
             if (health <= 0f)
             {

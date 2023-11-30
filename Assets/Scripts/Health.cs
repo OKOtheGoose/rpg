@@ -31,18 +31,18 @@ public class Health : MonoBehaviour
         {
             health -= damage;
             //Perks.instance.SpeedEffect.Invoke();
-            Perks.instance.giveSpeedEffect();
+            Perks.instance.GiveEffect(PerkType.Quickness);
             if (health < 0f)
             {
                 health = 0f;
             }   //Красота UI
-            else if (health > 100f) 
-                health = 100f;  //Жадность лишних единиц
+            else if (health > MaxHealth) 
+                health = MaxHealth;  //Жадность лишних единиц
 
             if (scrollBar != null)
             {
                 scrollBar.size = health > 0 ? health / MaxHealth : 0f;
-                Text.text = $"{(health > 0 ? health : 0)}/{MaxHealth}";
+                Text.text = $"{(health > 0 ? System.Math.Round(health) : 0)}/{(int)System.Math.Round(MaxHealth)}";
             }   //UI
             if (health <= 0f) {
                 Status = PlayerState.Dead;
